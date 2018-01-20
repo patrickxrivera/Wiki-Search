@@ -1,3 +1,9 @@
+/* Search Page */
+
 .search-input-el:focus {
   outline: none;
+}
+
+.btn:hover {
+  opacity: 0.7;
 }

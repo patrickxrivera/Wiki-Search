@@ -1,7 +1,11 @@
+/* Search Page Page */
+
 .search-container {
   width: 95%;
-  margin: 2rem auto;
-  border: 2px solid red;
+  margin: 1rem auto;
+  height: 100vh;
+  padding: 3rem 0;
+  border-radius: 5px;
 }
 
 .search-header {
@@ -20,10 +24,30 @@
 .search-input-el {
   border: none;
   border-bottom: 1px solid #ecf0f1;
-  width: 20rem;
-  margin: 5rem auto;
+  width: 23rem;
+  margin: 1.5rem auto 5rem;
 }
 
 .search-buttons-gutter {
   width: 2rem;
 }
+
+.btn {
+  text-align: center;
+  border-radius: 2px;
+  min-width: 54px;
+  line-height: 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 769px) {
+  .search-container {
+    width: 40%;
+  }
+
+  .search-input-el {
+    width: 25rem;
+  }
+}
+
+/* Results Page */
