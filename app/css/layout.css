@@ -1,0 +1,29 @@
+.search-container {
+  width: 95%;
+  margin: 2rem auto;
+  border: 2px solid red;
+}
+
+.search-header {
+  text-align: center;
+}
+
+.search-input-area,
+.search-button-area {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input-area {
+}
+
+.search-input-el {
+  border: none;
+  border-bottom: 1px solid #ecf0f1;
+  width: 20rem;
+  margin: 5rem auto;
+}
+
+.search-buttons-gutter {
+  width: 2rem;
+}

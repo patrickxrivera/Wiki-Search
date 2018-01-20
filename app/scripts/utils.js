@@ -11,4 +11,4 @@ export default (function getUtils() {
   function getUpperCase(word) {
     return word.toUpperCase();
   }
-}())
+}());

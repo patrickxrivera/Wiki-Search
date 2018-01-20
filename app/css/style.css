@@ -1,0 +1,11 @@
+.search-input-el {
+  font-size: 1.5rem;
+}
+
+.search-input-el {
+  caret-color: #1EAAF1;
+}
+
+.search-input-el::placeholder {
+  opacity: 0.2;
+}
