@@ -6,7 +6,7 @@ body {
   background-color: #F8F9FC;
 }
 
-.search-container {
+.main-container {
   background-color: #fff;
   box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
 }
@@ -37,4 +37,32 @@ body {
   border-radius: 1rem;
   font-size: 0.75rem;
   border: 1px solid #34495e;
+  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+}
+
+/* Results Page */
+
+.results-nav-area {
+  padding: 1rem;
+  background-color: #34495e;
+  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+}
+
+.results-nav-area li:first-of-type {
+  border-bottom: 3px solid #e74c3c;
+  margin-left: -1rem;
+  margin-bottom: -1rem;
+}
+
+.results-nav-area li:not(:first-of-type) {
+  opacity: 0.4;
+}
+
+.results-nav-area li {
+  cursor: pointer;
+}
+
+.results-nav-el {
+  color: #fff;
+  font-size: 0.90rem;
 }

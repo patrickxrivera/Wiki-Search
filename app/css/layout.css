@@ -1,6 +1,6 @@
 /* Search Page Page */
 
-.search-container {
+.main-container {
   width: 95%;
   margin: 1rem auto;
   height: 100vh;
@@ -24,7 +24,7 @@
 .search-input-el {
   border: none;
   border-bottom: 1px solid #ecf0f1;
-  width: 23rem;
+  width: 24rem;
   margin: 1.5rem auto 5rem;
 }
 
@@ -51,3 +51,18 @@
 }
 
 /* Results Page */
+
+.results-nav-area {
+  display: flex;
+  list-style: none;
+  width: 24rem;
+  margin: 0 auto;
+  border-radius: 0.1rem;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.results-nav-el {
+  text-decoration: none;
+  margin: 0 1.75rem;
+}
