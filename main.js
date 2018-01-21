@@ -74,7 +74,7 @@ const UI = (function getUI() {
     }
   }
 
-  function renderAnimation(className, animationName) { // TODO => name
+  function renderAnimation(className, animationName) { 
     const classEl = document.querySelector(`.${className}`);
     classEl.classList.add(`${animationName}`);
   }

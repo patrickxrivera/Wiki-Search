@@ -38,9 +38,37 @@
   padding: 0 1rem;
 }
 
+/* For non-smartphones */
+
 @media (min-width: 769px) {
+
   .main-container {
-    width: 40%;
+    width: 65%;
+  }
+
+  .search-header h2 {
+    text-align: left;
+    margin-left: 9rem;
+    font-size: 32px;
+    margin-top: 6rem;
+  }
+
+  .search-input-el {
+    font-size: 32px;
+    min-width: 62%;
+  }
+
+  .btn {
+    margin-top: -1rem;
+  }
+
+  .results-nav-area {
+    min-width: 58%;
+  }
+
+  .results-articles {
+    border: 1px dashed orange;
+    min-width: 62%;
   }
 
   .search-input-el {

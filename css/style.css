@@ -32,12 +32,11 @@ body {
 .btn {
   color: #34495e;
   text-decoration: none;
-  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+  box-shadow: rgba(23,43,99,0.26) 0 3px 10px;
   font-weight: bold;
   border-radius: 1rem;
   font-size: 0.75rem;
   border: 1px solid #34495e;
-  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
 }
 
 /* Results Page */
