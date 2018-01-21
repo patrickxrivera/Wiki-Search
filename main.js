@@ -9,7 +9,7 @@ const App = (function setupApp() {
   // **************************
 
   function init() {
-    UI.addAnimation();
+    UI.bindUIActions();
   }
 
 }());
@@ -22,15 +22,26 @@ const UI = (function getUI() {
   const buttons = document.querySelectorAll('.btn');
 
   const publicAPI = {
-    addAnimation: addAnimation
+    bindUIActions: bindUIActions
   };
 
   return publicAPI;
 
   // **************************
 
-  function addAnimation() {
+  function bindUIActions() {
     buttons.forEach(button => button.addEventListener('click', iterateAnimations));
+    window.addEventListener('keypress', checkIfEnterKeyIsPressed);
+  }
+
+  function checkIfEnterKeyIsPressed(e) {
+    if (isEnterKey(e)) {
+      iterateAnimations();
+    }
+  }
+
+  function isEnterKey(e) {
+    return e.keyCode === 13;
   }
 
   function iterateAnimations() {
@@ -46,6 +57,14 @@ const UI = (function getUI() {
       thirdAnimation: {
         className: 'search-input-el',
         animationName: 'enlarge-search-font-size'
+      },
+      fourthAnimation: {
+        className: 'search-button-area',
+        animationName: 'fade-buttons'
+      },
+      fifthAnimation: {
+        className: 'results-container',
+        animationName: 'results-container-slide-up'
       }
     }
 
