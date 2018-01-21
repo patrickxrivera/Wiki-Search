@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="master.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans:300,400" rel="stylesheet">
 	<link rel="stylesheet" href="./node_modules/animate.css/animate.min.css">
+	<script src="./node_modules/feather-icons/dist/feather.min.js"></script>
 </head>
 <body>
 
@@ -17,11 +18,12 @@
 
 			<section class="search-input-area">
 				<input class="search-input-el" type="text" name="" placeholder="Type your search" autofocus>
+				<div class="icon">
+					<i data-feather="search"></i>
+				</div>
 			</section>
 
 			<section class="animated search-button-area">
-				<a class="btn" href="#">Search</a>
-				<span class="search-buttons-gutter"></span>
 				<a class="btn" href="#">Random</a>
 			</section>
 
@@ -60,6 +62,10 @@
 		</div> <!-- Results Container -->
 
 	</div> <!-- Main Container -->
+
+	<script>
+		feather.replace()
+	</script>
 
 	<script type="text/javascript" src="main.js"></script>
 

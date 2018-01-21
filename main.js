@@ -19,8 +19,6 @@ const App = (function setupApp() {
 
 const UI = (function getUI() {
 
-  const buttons = document.querySelectorAll('.btn');
-
   const publicAPI = {
     bindUIActions: bindUIActions
   };
@@ -30,13 +28,20 @@ const UI = (function getUI() {
   // **************************
 
   function bindUIActions() {
-    buttons.forEach(button => button.addEventListener('click', iterateAnimations));
+    const randButton = document.querySelector('.btn');
+    const searchIcon = document.querySelector('svg');
+    getAnimationsOnClick(randButton);
+    getAnimationsOnClick(searchIcon);
     window.addEventListener('keypress', checkIfEnterKeyIsPressed);
+  }
+
+  function getAnimationsOnClick(el) {
+    el.addEventListener('click', getAnimations);
   }
 
   function checkIfEnterKeyIsPressed(e) {
     if (isEnterKey(e)) {
-      iterateAnimations();
+      getAnimations();
     }
   }
 
@@ -44,37 +49,54 @@ const UI = (function getUI() {
     return e.keyCode === 13;
   }
 
-  function iterateAnimations() {
-    const classAndAnimationPair = {
+  function getAnimations() {
+    const classAndAnimationPairs = { // TODO better key names
       firstAnimation: {
         className: 'search-container',
         animationName: 'search-container-slide-up'
       },
       secondAnimation: {
-        className: 'search-header',
-        animationName: 'shorten-header-font-size'
-      },
-      thirdAnimation: {
         className: 'search-input-el',
         animationName: 'enlarge-search-font-size'
       },
-      fourthAnimation: {
+      thirdAnimation: {
         className: 'search-button-area',
         animationName: 'fade-buttons'
       },
-      fifthAnimation: {
+      fourthAnimation: {
         className: 'results-container',
         animationName: 'results-container-slide-up'
       }
     }
 
-    for (let key in classAndAnimationPair) {
-      let animation = classAndAnimationPair[key];
+    addHeaderAnimation(classAndAnimationPairs);
+    iterateThroughAnimations(classAndAnimationPairs)
+  }
+
+  function addHeaderAnimation(classAndAnimationPairs) {
+    let animationName;
+
+    if (isDesktop()) {
+        animationName = 'move-header-diagonally';
+    } else {
+      animationName = 'decrease-header-font-size';
+    }
+    classAndAnimationPairs['fifthAnimation'] = {className: 'search-header', animationName: `${animationName}`};
+  }
+
+  function isDesktop() {
+    console.log(window.innerWidth);
+    return window.innerWidth >= 769;
+  }
+
+  function iterateThroughAnimations(classAndAnimationPairs) {
+    for (let key in classAndAnimationPairs) {
+      let animation = classAndAnimationPairs[key];
       renderAnimation(animation.className, animation.animationName);
     }
   }
 
-  function renderAnimation(className, animationName) { 
+  function renderAnimation(className, animationName) {
     const classEl = document.querySelector(`.${className}`);
     classEl.classList.add(`${animationName}`);
   }
