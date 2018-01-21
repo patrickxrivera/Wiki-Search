@@ -7,7 +7,6 @@ const App = (function setupApp() {
   return publicAPI;
 
   // **************************
-  // **************************
 
   function init() {
     UI.addAnimation();
@@ -15,6 +14,8 @@ const App = (function setupApp() {
 
 }());
 
+// **************************
+// **************************
 
 const UI = (function getUI() {
 
@@ -29,14 +30,34 @@ const UI = (function getUI() {
   // **************************
 
   function addAnimation() {
-    const header = document.querySelector('.search-header h2');
-    console.log(buttons);
-    header.addEventListener('mouseover', renderSearchContainerSlideUp);
-    buttons.forEach(button => button.addEventListener('mouseover', renderSearchContainerSlideUp));
+    buttons.forEach(button => button.addEventListener('click', iterateAnimations));
   }
 
-  function renderSearchContainerSlideUp() {
-    console.log('hello');
+  function iterateAnimations() {
+    const classAndAnimationPair = {
+      firstAnimation: {
+        className: 'search-container',
+        animationName: 'search-container-slide-up'
+      },
+      secondAnimation: {
+        className: 'search-header',
+        animationName: 'shorten-header-font-size'
+      },
+      thirdAnimation: {
+        className: 'search-input-el',
+        animationName: 'enlarge-search-font-size'
+      }
+    }
+
+    for (let key in classAndAnimationPair) {
+      let animation = classAndAnimationPair[key];
+      renderAnimation(animation.className, animation.animationName);
+    }
+  }
+
+  function renderAnimation(className, animationName) { // TODO => name
+    const classEl = document.querySelector(`.${className}`);
+    classEl.classList.add(`${animationName}`);
   }
 
 }());
