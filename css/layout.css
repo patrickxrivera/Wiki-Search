@@ -31,7 +31,7 @@
 
 svg {
   stroke: #353A3F;
-  box-shadow: rgba(23,43,99,0.1) 0 7px 42px;
+  box-shadow: rgba(23,43,99,0) 0 7px 42px;
   transform: rotateY(180deg);
   cursor: pointer;
 }

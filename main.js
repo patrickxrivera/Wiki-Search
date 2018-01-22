@@ -50,47 +50,77 @@ const UI = (function getUI() {
   }
 
   function getAnimations() {
-    const classAndAnimationPairs = { // TODO better key names
-      firstAnimation: {
+    const animations = getScreenSpecificAnimations();
+    iterateThrough(animations);
+  }
+
+  function getScreenSpecificAnimations() {
+    const mobileAnimations = {
+      mobileAnimationOne: {
         className: 'search-container',
-        animationName: 'search-container-slide-up'
+        animationName: 'mobile-search-container-slide-up'
       },
-      secondAnimation: {
-        className: 'search-input-el',
-        animationName: 'enlarge-search-font-size'
+      mobileAnimationTwo: {
+        className: 'search-header',
+        animationName: 'mobile-header-diagonally'
       },
-      thirdAnimation: {
-        className: 'search-button-area',
-        animationName: 'fade-buttons'
-      },
-      fourthAnimation: {
+      mobileAnimationThree: {
         className: 'results-container',
-        animationName: 'results-container-slide-up'
+        animationName: 'mobile-results-container-slide-up'
       }
     }
 
-    addHeaderAnimation(classAndAnimationPairs);
-    iterateThroughAnimations(classAndAnimationPairs)
-  }
+    const desktopAnimations = {
+      desktopAnimationOne: {
+        className: 'search-container',
+        animationName: 'desktop-search-container-slide-up'
+      },
+      desktopAnimationTwo: {
+        className: 'search-header',
+        animationName: 'move-header-diagonally'
+      },
+      desktopAnimationThree: {
+        className: 'results-container',
+        animationName: 'desktop-results-container-slide-up'
+      }
+    }
 
-  function addHeaderAnimation(classAndAnimationPairs) {
-    let animationName;
+    let animations;
 
     if (isDesktop()) {
-        animationName = 'move-header-diagonally';
+      animations = set(desktopAnimations);
     } else {
-      animationName = 'decrease-header-font-size';
+      animations = set(mobileAnimations);
     }
-    classAndAnimationPairs['fifthAnimation'] = {className: 'search-header-el', animationName: `${animationName}`};
+    
+    return animations;
   }
 
   function isDesktop() {
     return window.innerWidth >= 769;
   }
 
-  function iterateThroughAnimations(classAndAnimationPairs) {
-    for (let key in classAndAnimationPairs) {
-      let animation = classAndAnimationPairs[key];
+  function set(deviceAnimations) { // TODO better variable name
+    const sharedAnimations = { // TODO better key names, put in a better place
+      one: {
+        className: 'search-button-area',
+        animationName: 'fade-buttons'
+      }
+    }
+
+    for (let key in deviceAnimations) {
+      sharedAnimations[key] = {
+        className: deviceAnimations[key].className,
+        animationName: deviceAnimations[key].animationName
+      }
+    }
+
+    return sharedAnimations;
+  }
+
+  function iterateThrough(animations) {
+    for (let key in animations) {
+      let animation = animations[key];
       renderAnimation(animation.className, animation.animationName);
     }
   }
