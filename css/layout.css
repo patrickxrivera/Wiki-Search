@@ -89,6 +89,7 @@ svg {
 
 .results-articles p {
   margin-top: -1rem;
+  line-height: 1.55rem;
 }
 
 /* For non-smartphones */

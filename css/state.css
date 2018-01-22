@@ -3,7 +3,6 @@
   --animation-time: 0.23s;
 }
 
-
 .search-input-el:focus {
   outline: none;
 }
@@ -14,6 +13,21 @@
 
 .fade-buttons {
   opacity: 0;
+}
+
+.fade-up-on-start {
+  animation: 0.05s fadeUpOnStart ease-out;
+}
+
+@keyframes fadeUpOnStart {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .mobile-search-container-slide-up {

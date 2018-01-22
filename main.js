@@ -111,24 +111,24 @@ const UI = (function getUI() {
     classEl.classList.add(`${animationName}`);
   }
 
-  function renderArticles(heading, paragraph, link) {
-    const articleEntry = createArticleEntryEl(heading, paragraph, link);
+  function renderArticles(article) {
+    const articleEntry = createArticleEntryEl(article);
     runContainerAnimation();
     articlesContainer.appendChild(articleEntry);
   }
 
-  function createArticleEntryEl(heading, paragraph, link) {
+  function createArticleEntryEl(article) {
     const articleEntry = document.createElement('div');
     articleEntry.classList.add('results-entry');
-    articleEntry.innerHTML = constructHTMLFor(heading, paragraph, link);
+    articleEntry.innerHTML = constructHTMLFor(article);
     return articleEntry;
   }
 
-  function constructHTMLFor(heading, paragraph, link) {
+  function constructHTMLFor(article) {
     let articleHTML =
-      `<a href=${link} target="_blank"> \
-        <h4>${heading}</h4> \
-        <p>${paragraph}</p> \
+      `<a href=${article.link} target="_blank"> \
+        <h4>${article.heading}</h4> \
+        <p>${article.paragraph}</p> \
       </a>`
     return articleHTML;
   }
@@ -174,8 +174,12 @@ const Query = (function getQuery() {
     const [headings, paragraphs, links] = [articlesArray[1], articlesArray[2], articlesArray[3]];
 
     for (let i = 0; i < headings.length; i++) {
-      const [heading, paragraph, link] = [headings[i], paragraphs[i], links[i]];
-      UI.renderArticles(heading, paragraph, link);
+      const article = {
+        heading: headings[i],
+        paragraph: paragraphs[i],
+        link: links[i]
+      };
+      UI.renderArticles(article);
     }
   }
 
