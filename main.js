@@ -2,7 +2,7 @@ const App = (function setupApp() {
 
   const publicAPI = {
     init: init
-  }
+  };
 
   return publicAPI;
 
@@ -10,7 +10,7 @@ const App = (function setupApp() {
 
   function init() {
     UI.bindUIActions();
-  }
+  };
 
 }());
 
@@ -28,22 +28,8 @@ const UI = (function getUI() {
   // **************************
 
   function bindUIActions() {
-    handleClickEvents();
     handleKeyPress();
-  }
-
-  function handleClickEvents() {
-    getElement('.btn');
-    getElement('svg');
-  }
-
-  function getElement(identifier) {
-    const element = document.querySelector(identifier);
-    addClickListenerTo(element);
-  }
-
-  function addClickListenerTo(el) {
-    el.addEventListener('click', getAnimations);
+    handleClickEvents();
   }
 
   function handleKeyPress() {
@@ -60,6 +46,21 @@ const UI = (function getUI() {
     return e.keyCode === 13;
   }
 
+  function handleClickEvents() {
+    addClickListenerTo('.btn', getRandomWikiArticle);
+    addClickListenerTo('svg', getAnimations);
+  }
+
+  function addClickListenerTo(identifier, func) {
+    const el = document.querySelector(identifier);
+    el.addEventListener('click', func);
+  }
+
+  function getRandomWikiArticle() {
+    const randomWikiArticleUrl = 'https://en.wikipedia.org/wiki/Special:Random';
+    this.href = randomWikiArticleUrl;
+  }
+
   function getAnimations() {
     const animations = getScreenSpecificAnimations();
     iterateThrough(animations);
@@ -68,6 +69,7 @@ const UI = (function getUI() {
   function getScreenSpecificAnimations() {
     const desktopAnimations = Data.getDesktopAnimations();
     const mobileAnimations = Data.getMobileAnimations();
+
     return isDesktop() ? desktopAnimations : mobileAnimations;
   }
 

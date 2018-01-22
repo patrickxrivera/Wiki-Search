@@ -45,6 +45,7 @@ body {
   padding: 1rem 0;
   background-color: #34495e;
   box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+  text-transform: uppercase;
 }
 
 .results-nav-area li:first-of-type {
