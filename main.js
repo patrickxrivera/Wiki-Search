@@ -105,11 +105,16 @@ const UI = (function getUI() {
   }
 
   function renderArticles(heading, paragraph, link) {
-    const articlesEl = document.querySelector('.results-articles');
+    const articlesContainer = document.querySelector('.results-articles');
+    const articleEntry = createArticleEntryEl(heading, paragraph, link);
+    articlesContainer.appendChild(articleEntry);
+  }
+
+  function createArticleEntryEl(heading, paragraph, link) {
     const articleEntry = document.createElement('div');
     articleEntry.classList.add('results-entry');
     articleEntry.innerHTML = constructHTMLFor(heading, paragraph, link);
-    articlesEl.appendChild(articleEntry);
+    return articleEntry;
   }
 
   function constructHTMLFor(heading, paragraph, link) {
@@ -157,9 +162,7 @@ const Query = (function getQuery() {
     const [headings, paragraphs, links] = [articlesArray[1], articlesArray[2], articlesArray[3]];
 
     for (let i = 0; i < headings.length; i++) {
-      let heading = headings[i];
-      let paragraph = paragraphs[i];
-      let link = links[i];
+      const [heading, paragraph, link] = [headings[i], paragraphs[i], links[i]];
       UI.renderArticles(heading, paragraph, link);
     }
   }
