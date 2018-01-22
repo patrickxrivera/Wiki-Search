@@ -81,11 +81,10 @@ const UI = (function getUI() {
     } else {
       animationName = 'decrease-header-font-size';
     }
-    classAndAnimationPairs['fifthAnimation'] = {className: 'search-header', animationName: `${animationName}`};
+    classAndAnimationPairs['fifthAnimation'] = {className: 'search-header-el', animationName: `${animationName}`};
   }
 
   function isDesktop() {
-    console.log(window.innerWidth);
     return window.innerWidth >= 769;
   }
 

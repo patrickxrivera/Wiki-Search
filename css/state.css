@@ -30,11 +30,11 @@
   }
 
   60% {
-    transform: translateY(-120px);
+    transform: translateY(-130px);
   }
 
   to {
-    transform: translateY(-110px);
+    transform: translateY(-120px);
   }
 }
 
@@ -70,7 +70,7 @@
 
 @keyframes decreaseHeaderFontSize {
   0% { font-size: 2rem; }
-  100% { font-size: 1rem; }
+  100% { font-size: 1.5rem; }
 }
 
 /* .enlarge-search-font-size {
@@ -89,8 +89,10 @@
 @keyframes moveHeaderDiagonally {
   from {
     transform: translate(0, 0);
+    font-size: 3rem;
   }
   to {
-    transform: translate(-130px, 100px);
+    transform: translate(-70%, 30%);
+    font-size: 1.5rem;
   }
 }
