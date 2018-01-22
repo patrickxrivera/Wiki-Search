@@ -18,6 +18,7 @@ const App = (function setupApp() {
 // **************************
 
 const UI = (function getUI() {
+  const articlesContainer = document.querySelector('.results-articles');
 
   const publicAPI = {
     bindUIActions: bindUIActions,
@@ -63,8 +64,14 @@ const UI = (function getUI() {
   }
 
   function makeRequest() { // TODO better name
+    clearContainer();
     getSearchVal();
     getAnimations();
+  }
+
+  function clearContainer() {
+    articlesContainer.classList.add('animated', 'fadeOut');
+    articlesContainer.innerHTML = '';
   }
 
   function getSearchVal() {
@@ -105,8 +112,8 @@ const UI = (function getUI() {
   }
 
   function renderArticles(heading, paragraph, link) {
-    const articlesContainer = document.querySelector('.results-articles');
     const articleEntry = createArticleEntryEl(heading, paragraph, link);
+    runContainerAnimation();
     articlesContainer.appendChild(articleEntry);
   }
 
@@ -124,6 +131,11 @@ const UI = (function getUI() {
         <p>${paragraph}</p> \
       </a>`
     return articleHTML;
+  }
+
+  function runContainerAnimation() {
+    articlesContainer.classList.remove('fadeOut');
+    articlesContainer.classList.add('fadeIn');
   }
 
 }());

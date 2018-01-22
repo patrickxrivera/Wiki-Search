@@ -79,7 +79,7 @@
 
 @keyframes desktopMoveHeaderDiagonally {
   from { transform: translate(0, 0) }
-  to { transform: translate(-355px, 115px) }
+  to { transform: translate(-355px, 113px) }
 }
 
 .desktop-decrease-header-font-size {
