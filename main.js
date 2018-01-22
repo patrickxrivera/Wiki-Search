@@ -20,7 +20,8 @@ const App = (function setupApp() {
 const UI = (function getUI() {
 
   const publicAPI = {
-    bindUIActions: bindUIActions
+    bindUIActions: bindUIActions,
+    renderArticles: renderArticles
   };
 
   return publicAPI;
@@ -38,7 +39,7 @@ const UI = (function getUI() {
 
   function checkIfEnterKeyIsPressed(e) {
     if (isEnterKey(e)) {
-      getAnimations();
+      makeRequest();
     }
   }
 
@@ -48,7 +49,7 @@ const UI = (function getUI() {
 
   function handleClickEvents() {
     addClickListenerTo('.btn', getRandomWikiArticle);
-    addClickListenerTo('svg', getAnimations);
+    addClickListenerTo('svg', makeRequest);
   }
 
   function addClickListenerTo(identifier, func) {
@@ -59,6 +60,16 @@ const UI = (function getUI() {
   function getRandomWikiArticle() {
     const randomWikiArticleUrl = 'https://en.wikipedia.org/wiki/Special:Random';
     this.href = randomWikiArticleUrl;
+  }
+
+  function makeRequest() { // TODO better name
+    getSearchVal();
+    getAnimations();
+  }
+
+  function getSearchVal() {
+    const searchVal = document.querySelector('.search-input-el').value;
+    Query.getArticles(searchVal);
   }
 
   function getAnimations() {
@@ -91,6 +102,66 @@ const UI = (function getUI() {
   function renderAnimation(className, animationName) {
     const classEl = document.querySelector(`.${className}`);
     classEl.classList.add(`${animationName}`);
+  }
+
+  function renderArticles(heading, paragraph, link) {
+    const articlesEl = document.querySelector('.results-articles');
+    const articleEntry = document.createElement('div');
+    articleEntry.classList.add('results-entry');
+    articleEntry.innerHTML = constructHTMLFor(heading, paragraph, link);
+    articlesEl.appendChild(articleEntry);
+  }
+
+  function constructHTMLFor(heading, paragraph, link) {
+    let articleHTML =
+      `<a href=${link} target="_blank"> \
+        <h4>${heading}</h4> \
+        <p>${paragraph}</p> \
+      </a>`
+    return articleHTML;
+  }
+
+}());
+
+// **************************
+// **************************
+
+const Query = (function getQuery() {
+
+  const publicAPI = {
+    getArticles: getArticles
+  }
+
+  return publicAPI;
+
+  // **************************
+
+  async function getArticles(searchVal) { // TODO name
+    const wikiApiUrl = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&search=${searchVal}`; // TODO consider changing name;
+    const articlesArray = await getArticlesArray(wikiApiUrl);
+    consolidate(articlesArray);
+  }
+
+  async function getArticlesArray(url) { // TODO better name
+    try {
+      let response = await fetch(url);
+      let data = await response.json();
+      return data;
+    }
+    catch(err) {
+      console.warn('Error', err);
+    }
+  }
+
+  function consolidate(articlesArray) { // TODO name and make function smaller
+    const [headings, paragraphs, links] = [articlesArray[1], articlesArray[2], articlesArray[3]];
+
+    for (let i = 0; i < headings.length; i++) {
+      let heading = headings[i];
+      let paragraph = paragraphs[i];
+      let link = links[i];
+      UI.renderArticles(heading, paragraph, link);
+    }
   }
 
 }());
