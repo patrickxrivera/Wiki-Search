@@ -55,45 +55,10 @@ const UI = (function getUI() {
   }
 
   function getScreenSpecificAnimations() {
-    const mobileAnimations = {
-      mobileAnimationOne: {
-        className: 'search-container',
-        animationName: 'mobile-search-container-slide-up'
-      },
-      mobileAnimationTwo: {
-        className: 'search-header',
-        animationName: 'mobile-header-diagonally'
-      },
-      mobileAnimationThree: {
-        className: 'results-container',
-        animationName: 'mobile-results-container-slide-up'
-      }
-    }
+    const desktopAnimations = Data.getDesktopAnimations();
+    const mobileAnimations = Data.getMobileAnimations();
 
-    const desktopAnimations = {
-      desktopAnimationOne: {
-        className: 'search-container',
-        animationName: 'desktop-search-container-slide-up'
-      },
-      desktopAnimationTwo: {
-        className: 'search-header',
-        animationName: 'move-header-diagonally'
-      },
-      desktopAnimationThree: {
-        className: 'results-container',
-        animationName: 'desktop-results-container-slide-up'
-      }
-    }
-
-    let animations;
-
-    if (isDesktop()) {
-      animations = set(desktopAnimations);
-    } else {
-      animations = set(mobileAnimations);
-    }
-    
-    return animations;
+    return isDesktop() ? set(desktopAnimations) : set(mobileAnimations);
   }
 
   function isDesktop() {
@@ -101,14 +66,8 @@ const UI = (function getUI() {
   }
 
   function set(deviceAnimations) { // TODO better variable name
-    const sharedAnimations = { // TODO better key names, put in a better place
-      one: {
-        className: 'search-button-area',
-        animationName: 'fade-buttons'
-      }
-    }
-
-    for (let key in deviceAnimations) {
+    let sharedAnimations = Data.getSharedAnimations(); // TODO put this in a better place
+    for (let key in deviceAnimations) { // TODO abstract out what's inside the for loop
       sharedAnimations[key] = {
         className: deviceAnimations[key].className,
         animationName: deviceAnimations[key].animationName
@@ -119,7 +78,7 @@ const UI = (function getUI() {
   }
 
   function iterateThrough(animations) {
-    for (let key in animations) {
+    for (let key in animations) { // TODO abstract out what's inside the for loop
       let animation = animations[key];
       renderAnimation(animation.className, animation.animationName);
     }
@@ -128,6 +87,73 @@ const UI = (function getUI() {
   function renderAnimation(className, animationName) {
     const classEl = document.querySelector(`.${className}`);
     classEl.classList.add(`${animationName}`);
+  }
+
+}());
+
+// **************************
+// **************************
+
+const Data = (function getData() {
+
+  const publicAPI = {
+    getDesktopAnimations: getDesktopAnimations,
+    getMobileAnimations: getMobileAnimations,
+    getSharedAnimations: getSharedAnimations
+  }
+
+  return publicAPI;
+
+  // **************************
+
+  function getDesktopAnimations() {
+    const desktopAnimations = {
+      desktopAnimationOne: {
+        className: 'search-container',
+        animationName: 'desktop-search-container-slide-up'
+      },
+      desktopAnimationTwo: {
+        className: 'search-header',
+        animationName: 'desktop-move-header-diagonally'
+      },
+      desktopAnimationThree: {
+        className: 'results-container',
+        animationName: 'desktop-results-container-slide-up'
+      },
+      desktopAnimationFour: {
+        className: 'search-header-el',
+        animationName: 'desktop-decrease-header-font-size'
+      }
+    }
+    return desktopAnimations;
+  }
+
+  function getMobileAnimations() {
+    const mobileAnimations = {
+      mobileAnimationOne: {
+        className: 'search-container',
+        animationName: 'mobile-search-container-slide-up'
+      },
+      mobileAnimationTwo: {
+        className: 'search-header-el',
+        animationName: 'mobile-decrease-header-font-size'
+      },
+      mobileAnimationThree: {
+        className: 'results-container',
+        animationName: 'mobile-results-container-slide-up'
+      }
+    }
+    return mobileAnimations;
+  }
+
+  function getSharedAnimations() {
+    const sharedAnimations = { // TODO better key names, put in a better place
+      sharedAnimationOne: {
+        className: 'search-button-area',
+        animationName: 'fade-buttons'
+      }
+    }
+    return sharedAnimations;
   }
 
 }());

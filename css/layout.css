@@ -104,6 +104,11 @@ svg {
     width: 75%;
   }
 
+  .search-header {
+    width: 45%;
+    margin: 0 auto;
+  }
+
   .search-header h2 {
     text-align: center;
     font-size: 3rem;
