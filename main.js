@@ -2,8 +2,8 @@ const UI = (function getUI() {
   const articlesContainer = document.querySelector('.results-articles');
 
   const publicAPI = {
-    bindUIActions: bindUIActions,
-    renderArticles: renderArticles
+    bindUIActions,
+    renderArticles
   };
 
   return publicAPI;
@@ -57,7 +57,7 @@ const UI = (function getUI() {
 
   function getSearchVal() {
     const searchVal = document.querySelector('.search-input-el').value;
-    Query.getArticlesFrom(searchVal);
+    Data.getArticlesFrom(searchVal);
   }
 
   function getAnimations() {
@@ -66,8 +66,8 @@ const UI = (function getUI() {
   }
 
   function getScreenSpecificAnimations() {
-    const desktopAnimations = Data.getDesktopAnimations();
-    const mobileAnimations = Data.getMobileAnimations();
+    const desktopAnimations = Helpers.desktopAnimations;
+    const mobileAnimations = Helpers.mobileAnimations;
 
     return isDesktop() ? desktopAnimations : mobileAnimations;
   }
@@ -124,10 +124,10 @@ const UI = (function getUI() {
 // **************************
 // **************************
 
-const Query = (function getQuery() {
+const Data = (function setupData() {
 
   const publicAPI = {
-    getArticlesFrom: getArticlesFrom
+    getArticlesFrom
   }
 
   return publicAPI;
@@ -154,81 +154,63 @@ const Query = (function getQuery() {
   function consolidate(articlesArray) { // TODO name and make function smaller
     const [headings, paragraphs, links] = [articlesArray[1], articlesArray[2], articlesArray[3]];
 
-    for (let i = 0; i < headings.length; i++) {
+    headings.forEach((item, index) => {
       const article = {
-        heading: headings[i],
-        paragraph: paragraphs[i],
-        link: links[i]
-      };
+        heading: headings[index],
+        paragraph: paragraphs[index],
+        link: links[index]
+      }
       UI.renderArticles(article);
+    });
+  }
+
+}());
+
+// **************************
+// **************************
+
+const Helpers = {
+  desktopAnimations: {
+    one: {
+      className: 'search-container',
+      animationName: 'desktop-search-container-slide-up'
+    },
+    two: {
+      className: 'search-header',
+      animationName: 'desktop-move-header-diagonally'
+    },
+    three: {
+      className: 'results-container',
+      animationName: 'desktop-results-container-slide-up'
+    },
+    four: {
+      className: 'search-header-el',
+      animationName: 'desktop-decrease-header-font-size'
+    },
+    five: {
+      className: 'search-button-area',
+      animationName: 'fade-buttons'
+    }
+  },
+  mobileAnimations: {
+    one: {
+      className: 'search-container',
+      animationName: 'mobile-search-container-slide-up'
+    },
+    two: {
+      className: 'search-header-el',
+      animationName: 'mobile-decrease-header-font-size'
+    },
+    three: {
+      className: 'results-container',
+      animationName: 'mobile-results-container-slide-up'
+    },
+    four: {
+      className: 'search-button-area',
+      animationName: 'fade-buttons'
     }
   }
-
-}());
-
-// **************************
-// **************************
-
-const Data = (function getData() {
-
-  const publicAPI = {
-    getDesktopAnimations: getDesktopAnimations,
-    getMobileAnimations: getMobileAnimations
-  }
-
-  return publicAPI;
-
-  // **************************
-
-  function getDesktopAnimations() {
-    const desktopAnimations = {
-      one: {
-        className: 'search-container',
-        animationName: 'desktop-search-container-slide-up'
-      },
-      two: {
-        className: 'search-header',
-        animationName: 'desktop-move-header-diagonally'
-      },
-      three: {
-        className: 'results-container',
-        animationName: 'desktop-results-container-slide-up'
-      },
-      four: {
-        className: 'search-header-el',
-        animationName: 'desktop-decrease-header-font-size'
-      },
-      five: {
-        className: 'search-button-area',
-        animationName: 'fade-buttons'
-      }
-    };
-    return desktopAnimations;
-  }
-
-  function getMobileAnimations() {
-    const mobileAnimations = {
-      one: {
-        className: 'search-container',
-        animationName: 'mobile-search-container-slide-up'
-      },
-      two: {
-        className: 'search-header-el',
-        animationName: 'mobile-decrease-header-font-size'
-      },
-      three: {
-        className: 'results-container',
-        animationName: 'mobile-results-container-slide-up'
-      },
-      four: {
-        className: 'search-button-area',
-        animationName: 'fade-buttons'
-      }
-    };
-    return mobileAnimations;
-  }
-
-}());
+}
 
 // **************************
 // **************************
