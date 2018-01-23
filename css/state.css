@@ -16,7 +16,7 @@
 }
 
 .fade-up-on-start {
-  animation: 0.05s fadeUpOnStart ease-out;
+  animation: 1ms fadeUpOnStart ease-out;
 }
 
 @keyframes fadeUpOnStart {
