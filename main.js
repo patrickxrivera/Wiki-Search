@@ -1,22 +1,3 @@
-const App = (function setupApp() {
-
-  const publicAPI = {
-    init: init
-  };
-
-  return publicAPI;
-
-  // **************************
-
-  function init() {
-    UI.bindUIActions();
-  };
-
-}());
-
-// **************************
-// **************************
-
 const UI = (function getUI() {
   const articlesContainer = document.querySelector('.results-articles');
 
@@ -76,7 +57,7 @@ const UI = (function getUI() {
 
   function getSearchVal() {
     const searchVal = document.querySelector('.search-input-el').value;
-    Query.getArticles(searchVal);
+    Query.getArticlesFrom(searchVal);
   }
 
   function getAnimations() {
@@ -146,14 +127,14 @@ const UI = (function getUI() {
 const Query = (function getQuery() {
 
   const publicAPI = {
-    getArticles: getArticles
+    getArticlesFrom: getArticlesFrom
   }
 
   return publicAPI;
 
   // **************************
 
-  async function getArticles(searchVal) { // TODO name
+  async function getArticlesFrom(searchVal) { // TODO name
     const wikiApiUrl = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&search=${searchVal}`; // TODO consider changing name;
     const articlesArray = await getArticlesArray(wikiApiUrl);
     consolidate(articlesArray);
@@ -252,4 +233,4 @@ const Data = (function getData() {
 // **************************
 // **************************
 
-App.init();
+UI.bindUIActions();
