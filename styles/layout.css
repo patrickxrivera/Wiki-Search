@@ -1,0 +1,144 @@
+/* Search Page Page */
+
+.main-container {
+  width: 95%;
+  margin: 1rem auto;
+  min-height: 100vh;
+  padding: 3rem 0;
+  border-radius: 5px;
+}
+
+.search-header {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.search-button-area {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input-area {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ecf0f1;
+  width: 90%;
+  margin: 5rem auto;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+svg {
+  stroke: #353A3F;
+  box-shadow: rgba(23,43,99,0) 0 7px 42px;
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.search-input-el {
+  border: none;
+  padding-right: 2rem;
+  flex-grow: 1;
+}
+
+.btn {
+  text-align: center;
+  border-radius: 2px;
+  min-width: 54px;
+  line-height: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* Results Page */
+
+.results-container {
+  opacity: 0;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.results-nav-area {
+  display: flex;
+  list-style: none;
+  margin: 0 auto;
+  border-radius: 0.1rem;
+  justify-content: space-around;
+}
+
+.results-container li {
+  text-align: center;
+  flex: 1;
+}
+
+.results-nav-el {
+  text-decoration: none;
+}
+
+.results-articles {
+  margin: 0 auto -7rem;
+}
+
+.results-entry {
+  margin: 2.75rem 0 1rem;
+}
+
+.results-entry:not(:last-of-type) {
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.results-articles p {
+  margin-top: -1rem;
+  line-height: 1.55rem;
+}
+
+/* For non-smartphones */
+
+@media (min-width: 769px) {
+
+  .results-nav-area,
+  .results-articles {
+    width: 100%;
+  }
+
+  .main-container {
+    width: 75%;
+  }
+
+  .search-header {
+    width: 45%;
+    margin: 0 auto;
+  }
+
+  .search-header h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 8rem;
+  }
+
+  .icon {
+    margin-right: 1rem;
+  }
+
+  .search-input-area {
+    width: 100%;
+  }
+
+  .search-input-el {
+    font-size: 2rem;
+  }
+
+  .btn {
+    margin-top: -1rem;
+  }
+
+  .search-container,
+  .results-container {
+    width: 31.5rem;
+    margin: 0 auto;
+  }
+
+  .results-articles {
+    margin: 0 auto -12rem;
+  }
+
+}
