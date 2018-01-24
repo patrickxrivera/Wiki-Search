@@ -1,7 +1,6 @@
 /* Search Page */
 :root {
-  --animation-time: 0.33s;
-  --animation-delay-time: 0.1s;
+  --animation-time: 0.4s;
 }
 
 .search-input-el:focus {
@@ -22,7 +21,7 @@
 
 @keyframes fadeUpOnStart {
   from {
-    transform: translateY(200px);
+    transform: translateY(100px);
     opacity: 0;
   }
   to {
@@ -108,7 +107,7 @@
 
 .desktop-search-container-slide-up {
 
-  animation: var(--animation-time) desktopSearchContainerSlideUp forwards var(--animation-delay-time);
+  animation: var(--animation-time) desktopSearchContainerSlideUp forwards;
 }
 
 @keyframes desktopSearchContainerSlideUp {
@@ -131,7 +130,7 @@
 }
 
 .desktop-results-container-slide-up {
-  animation: 3s desktopResultsContainerSlideUp forwards var(--animation-delay-time);
+  animation: 3s desktopResultsContainerSlideUp forwards;
   opacity: 1;
   margin-top: -2.5rem;
 }

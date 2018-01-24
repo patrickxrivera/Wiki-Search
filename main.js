@@ -134,13 +134,13 @@ const Data = (function setupData() {
 
   // **************************
 
-  async function getArticlesFrom(searchVal) { // TODO name
-    const wikiApiUrl = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&search=${searchVal}`; // TODO consider changing name;
+  async function getArticlesFrom(searchVal) {
+    const wikiApiUrl = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&search=${searchVal}`;
     const articlesArray = await getArticlesArray(wikiApiUrl);
     consolidate(articlesArray);
   }
 
-  async function getArticlesArray(url) { // TODO better name
+  async function getArticlesArray(url) {
     try {
       let response = await fetch(url);
       let data = await response.json();
@@ -151,7 +151,7 @@ const Data = (function setupData() {
     }
   }
 
-  function consolidate(articlesArray) { // TODO name and make function smaller
+  function consolidate(articlesArray) {
     const [headings, paragraphs, links] = [articlesArray[1], articlesArray[2], articlesArray[3]];
 
     headings.forEach((item, index) => {
