@@ -2,7 +2,7 @@
 
 .main-container {
   width: 95%;
-  margin: 8rem auto;
+  margin: 10rem auto;
   min-height: 900px;
   padding: 3rem 0;
   border-radius: 5px;
@@ -75,8 +75,7 @@ svg {
 }
 
 .results-articles {
-  margin: 0 auto 3rem;
-  border: 2px solid red;
+  margin: 0 auto 8rem;
 }
 
 .results-entry {
