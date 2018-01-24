@@ -152,7 +152,7 @@ const Data = (function setupData() {
   }
 
   function consolidate(articlesArray) {
-    const [headings, paragraphs, links] = [articlesArray[1], articlesArray[2], articlesArray[3]];
+    const [searchVal, headings, paragraphs, links] = [...articlesArray];
 
     headings.forEach((item, index) => {
       const article = {
