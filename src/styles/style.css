@@ -20,7 +20,6 @@ body {
 .search-input-el {
   font-family: 'Open Sans', serif;
   font-size: 1.5rem;
-  font-weight: 400;
   color: rgba(53, 58,	63, 0.8);
   caret-color: #7f8c8d;
 }
