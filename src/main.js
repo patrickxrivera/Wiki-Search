@@ -105,11 +105,11 @@ const UI = (function getUI() {
     return articleEntry;
   }
 
-  function constructHTMLFor(article) {
+  function constructHTMLFor({heading, paragraph, link} = {}) { // destructure article obj parameter or return empty obj if no obj is passed in
     let articleHTML =
-      `<a href=${article.link} target="_blank"> \
-        <h4>${article.heading}</h4> \
-        <p>${article.paragraph}</p> \
+      `<a href=${link} target="_blank"> \
+        <h4>${heading}</h4> \
+        <p>${paragraph}</p> \
       </a>`
     return articleHTML;
   }
@@ -152,7 +152,7 @@ const Data = (function setupData() {
   }
 
   function consolidate(articlesArray) {
-    const [searchVal, headings, paragraphs, links] = [...articlesArray];
+    const [ , headings, paragraphs, links] = [...articlesArray];
 
     headings.forEach((item, index) => {
       const article = {
