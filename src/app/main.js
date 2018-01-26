@@ -105,11 +105,11 @@ const UI = (function getUI() {
     return articleEntry;
   }
 
-  function constructHTMLFor({heading, paragraph, link} = {}) { // destructure article obj parameter or return empty obj if no obj is passed in
+  function constructHTMLFor(article) {
     let articleHTML =
-      `<a href=${link} target="_blank"> \
-        <h4>${heading}</h4> \
-        <p>${paragraph}</p> \
+      `<a href=${article.link} target="_blank"> \
+        <h4>${article.heading}</h4> \
+        <p>${article.paragraph}</p> \
       </a>`
     return articleHTML;
   }
