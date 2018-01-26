@@ -44,7 +44,7 @@ const UI = (function getUI() {
     this.href = randomWikiArticleUrl;
   }
 
-  function makeRequest() { // TODO better name
+  function makeRequest() {
     clearContainer();
     getSearchVal();
     getAnimations();
@@ -154,14 +154,14 @@ const Data = (function setupData() {
   function consolidate(articlesArray) {
     const [ , headings, paragraphs, links] = [...articlesArray];
 
-    headings.forEach((item, index) => {
+    for (let i = 0; i < headings.length; i++) {
       const article = {
-        heading: headings[index],
-        paragraph: paragraphs[index],
-        link: links[index]
+        heading: headings[i],
+        paragraph: paragraphs[i],
+        link: links[i]
       }
       UI.renderArticles(article);
-    });
+    }
   }
 
 }());

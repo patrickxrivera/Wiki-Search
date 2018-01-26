@@ -30,7 +30,7 @@
   }
 }
 
-/* .mobile-search-container-slide-up {
+.mobile-search-container-slide-up {
   animation: var(--animation-time) mobileSearchContainerSlideUp forwards;
 }
 
@@ -76,7 +76,7 @@
     opacity: 1;
     transform: translateY(-110px);
   }
-} */
+}
 
 .mobile-decrease-header-font-size {
   animation: var(--animation-time) mobileDecreaseHeaderFontSize forwards;
