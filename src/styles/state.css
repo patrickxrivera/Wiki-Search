@@ -55,7 +55,7 @@
 }
 
 @keyframes mobileResultsContainerSlideUp {
-  from, 60%, to {
+  from, to {
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
 
