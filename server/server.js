@@ -3,8 +3,8 @@ var app = express();
 var path = require('path');
 
 app.use(express.static(path.join(__dirname)));
-app.use("/styles", express.static(__dirname));
-app.use("./", express.static(__dirname + '/main.js'));
+app.use("../src/styles", express.static(__dirname));
+app.use("../src/main.js", express.static(__dirname));
 
 // viewed at based directory http://localhost:8080/
 app.get('/', function (req, res) {
