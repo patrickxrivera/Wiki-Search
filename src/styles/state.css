@@ -35,16 +35,12 @@
 }
 
 @keyframes mobileSearchContainerSlideUp {
-  from, 60%, to {
+  from, to {
     animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
   }
 
   from {
     transform: translateY(0);
-  }
-
-  60% {
-    transform: translateY(-130px);
   }
 
   to {
@@ -66,10 +62,6 @@
   from {
     opacity: 0;
     transform: translateY(2500px);
-  }
-
-  60% {
-    transform: translateY(-130px);
   }
 
   to {
