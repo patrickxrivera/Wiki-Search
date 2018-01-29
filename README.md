@@ -14,8 +14,8 @@ Check it out: https://fcc-wiki-view.herokuapp.com/
 
 ## Purpose
 
-* Learn how to create snazzy animations. 
-* Practice using the revealing module pattern in JS.
+* Learn how to query and render API data
+* Refine my CSS animation skills
 
 ## Technologies
 
