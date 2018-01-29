@@ -9,7 +9,6 @@ Check it out: https://fcc-wiki-view.herokuapp.com/
 - [Purpose](#purpose)
 - [Technologies](#technologies)
 - [Process](#process)
-  - [Inspiration](#inspiration)
   - [Wireframe](#wireframe)
   - [Prototype](#prototype)
 
@@ -26,15 +25,9 @@ Check it out: https://fcc-wiki-view.herokuapp.com/
 * Express
 
 ## Process
-## Inspiration
-
-I loved the minimalism of this layout and the vibrancy of the colors. Ended up modeling the card style layout after this.
-
-![Layout-Dribbble](https://s3.us-east-2.amazonaws.com/fcc-weather-app/weather-layout.png)
-
 ## Wireframe
 
-Given the number of small details, I felt it was better to write out the wireframe on paper instead of using a tool like Balsamiq. Made sure there was ample amount of negative space to give each of the elements room to breath.
+Although this was a fairly straightforward box layout, I wanted to make it mobile-responsive. Using Balsamiq helped me visualize how the mobile and desktop views would need to differ.
 
 ![Wireframe](https://s3.us-east-2.amazonaws.com/fcc-wiki-view/wiki-view-3.JPG)
 
@@ -42,8 +35,8 @@ Given the number of small details, I felt it was better to write out the wirefra
 
 ## Prototype
 
-Used the OpenWeather API for the weather information and used the browser's built-in .getCurrentLocation() method for getlocation. Was a lot of fun writing the list transformations for the forecast data as well as iterating ont he animations until they felt right.   
+Used the Wikipedia API for a simple endpoint with the 10 article entries related to the search query. Had a lot of fun creating the bouncy animations!   
 
-Try it out! https://animated-weather-app.herokuapp.com
+Try it out! https://fcc-wiki-view.herokuapp.com/
 
-![App-Gif](https://s3.us-east-2.amazonaws.com/fcc-weather-app/weather-app.gif)
+![App-Gif](https://s3.us-east-2.amazonaws.com/fcc-wiki-view/wiki-view.gif)
