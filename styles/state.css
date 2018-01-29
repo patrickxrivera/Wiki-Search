@@ -3,6 +3,10 @@
   --animation-time: 0.4s;
 }
 
+h4:hover {
+  text-decoration: underline;
+}
+
 .search-input-el:focus {
   outline: none;
 }

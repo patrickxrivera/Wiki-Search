@@ -79,7 +79,7 @@ svg {
 }
 
 .results-entry {
-  margin: 2.75rem 0 1rem;
+  padding: 1rem 0;
 }
 
 .results-entry:not(:last-of-type) {

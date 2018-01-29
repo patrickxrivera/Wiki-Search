@@ -107,10 +107,10 @@ const UI = (function getUI() {
 
   function constructHTMLFor(article) {
     let articleHTML =
-      `<a href=${article.link} target="_blank"> \
-        <h4>${article.heading}</h4> \
-        <p>${article.paragraph}</p> \
-      </a>`
+      `<h4> \
+        <a href=${article.link} target="_blank">${article.heading}</a> \
+      </h4> \
+      <p>${article.paragraph}</p> `
     return articleHTML;
   }
 
