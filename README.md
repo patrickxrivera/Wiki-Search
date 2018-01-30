@@ -29,9 +29,10 @@ Check it out: https://fcc-wiki-view.herokuapp.com/
 
 Although this was a fairly straightforward box layout, I wanted to make it mobile-responsive. Using Balsamiq helped me visualize how the mobile and desktop views would need to differ.
 
-![Wireframe](https://s3.us-east-2.amazonaws.com/fcc-wiki-view/wiki-view-3.JPG)
+![Wireframe-2](https://s3.us-east-2.amazonaws.com/fcc-wiki-view/1-wiki-search.JPG)
 
-![Wireframe-2](https://s3.us-east-2.amazonaws.com/fcc-wiki-view/another-wiki-view-pic.JPG)
+![Wireframe](https://s3.us-east-2.amazonaws.com/fcc-wiki-view/1-wiki-search-v.JPG)
+
 
 ## Prototype
 
