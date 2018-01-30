@@ -1,4 +1,5 @@
 const UI = (function getUI() {
+  const mainContainer = document.querySelector('.main-container');
   const articlesContainer = document.querySelector('.results-articles');
 
   const publicAPI = {
