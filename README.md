@@ -1,4 +1,4 @@
-# Wiki-View
+# WikiSearch
 **A search engine for Wikipedia articles**
 
 Check it out: https://fcc-wiki-view.herokuapp.com/
