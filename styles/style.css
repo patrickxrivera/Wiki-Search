@@ -2,13 +2,13 @@
 
 body {
   font-family: 'Open Sans', serif;
-  color: #353A3F;
-  background-color: #F8F9FC;
+  color: #353a3f;
+  background-color: #f8f9fc;
 }
 
 .main-container {
   background-color: #fff;
-  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+  box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
 }
 
 .search-header {
@@ -19,7 +19,7 @@ body {
 
 .search-input-el {
   font-size: 1.5rem;
-  color: rgba(53, 58,	63, 0.8);
+  color: rgba(53, 58, 63, 0.8);
   caret-color: #7f8c8d;
 }
 
@@ -31,7 +31,7 @@ body {
 .btn {
   color: #34495e;
   text-decoration: none;
-  box-shadow: rgba(23,43,99,0.26) 0 3px 10px;
+  box-shadow: rgba(23, 43, 99, 0.26) 0 3px 10px;
   font-weight: bold;
   border-radius: 1rem;
   font-size: 0.75rem;
@@ -43,7 +43,7 @@ body {
 .results-nav-area {
   padding: 1rem 0;
   background-color: #34495e;
-  box-shadow: rgba(23,43,99,0.26) 0 7px 42px;
+  box-shadow: rgba(23, 43, 99, 0.26) 0 7px 42px;
   text-transform: uppercase;
 }
 
@@ -57,15 +57,15 @@ body {
 }
 
 .results-nav-area li {
-  cursor: pointer;
+  cursor: default;
 }
 
 .results-nav-el {
   color: #fff;
-  font-size: 0.90rem;
+  font-size: 0.9rem;
 }
 
 .results-entry a {
   text-decoration: none;
-  color: #353A3F
+  color: #353a3f;
 }
